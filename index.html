@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karyera yo'llari — FDTU 1-kurs</title>
+  <meta name="description" content="Farg'ona davlat texnika universiteti 1-kurs talabalari uchun: karyera qurishning 3 yo'li — bilim, stipendiya va tanish-bilish. Taqqoslash, test va 4 yillik reja.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- Orqa fondagi jilolanuvchi rangli dog'lar -->
+  <div class="bg-glow" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- Skroll progress chizig'i -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Ikonkalar -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-telegram" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.230-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.830-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.930 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.910a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+  </svg>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">FDTU<span>·</span>Karyera</a>
+      <nav class="nav-links">
+        <a href="#yollar">3 yo'l</a>
+        <a href="#taqqoslash">Taqqoslash</a>
+        <a href="#test">Test</a>
+        <a href="#reja">Reja</a>
+        <a href="#lavhalar">Lavhalar</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Rejimni almashtirish">🌙</button>
+        <a href="#test" class="btn btn-primary btn-sm">Testni boshlash</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="badge">Farg'ona davlat texnika universiteti · 1-kurs</span>
+          <h1>Karyerangizni <span class="hl" id="typed">bilim</span><span class="caret" aria-hidden="true"></span><br>orqali qurasizmi?</h1>
+          <p>Auditoriyada karyera qilishning uch xil uslubini gaplashdik: <b>bilim</b>, <b>stipendiyant bo'lish</b> va <b>diplom + tanish-bilish</b>. Bu sayt — o'sha suhbatning davomi: qaysi yo'l qayerga olib borishini ko'ring va o'zingizga reja tuzing.</p>
+          <div class="hero-actions">
+            <a href="#yollar" class="btn btn-primary">3 yo'l bilan tanishish</a>
+            <a href="#test" class="btn btn-outline">🧭 Qaysi yo'l meniki?</a>
+          </div>
+          <div class="stats">
+            <div><b data-count="7">0</b><small>guruh</small></div>
+            <div><b data-count="3">0</b><small>yo'l</small></div>
+            <div><b data-count="4">0</b><small>yil — imkoniyat</small></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <svg class="roads" viewBox="0 0 400 440">
+            <!-- Uchta yo'l: start nuqtasidan tarmoqlanadi -->
+            <path class="road-bg" d="M200 415 C200 330 70 310 70 220 S110 100 95 55"/>
+            <path class="road-bg" d="M200 415 C200 320 330 300 330 215 S300 130 310 95"/>
+            <path class="road-bg" d="M200 415 C200 360 205 310 200 265"/>
+
+            <path id="roadK" class="road road-k" d="M200 415 C200 330 70 310 70 220 S110 100 95 55"/>
+            <path id="roadS" class="road road-s" d="M200 415 C200 320 330 300 330 215 S300 130 310 95"/>
+            <path id="roadT" class="road road-t" d="M200 415 C200 360 205 310 200 265"/>
+
+            <!-- Yo'l bo'ylab harakatlanuvchi nuqtalar -->
+            <circle r="7" class="dot dot-k"><animateMotion dur="5s" repeatCount="indefinite" rotate="auto"><mpath href="#roadK"/></animateMotion></circle>
+            <circle r="7" class="dot dot-s"><animateMotion dur="5.6s" begin="0.8s" repeatCount="indefinite"><mpath href="#roadS"/></animateMotion></circle>
+            <circle r="7" class="dot dot-t"><animateMotion dur="3s" begin="0.4s" repeatCount="indefinite"><mpath href="#roadT"/></animateMotion></circle>
+
+            <!-- Tanish-bilish yo'li uzilib qoladi -->
+            <g class="crack">
+              <path d="M180 255 L192 247 L200 256 L210 246 L222 254"/>
+            </g>
+
+            <circle cx="200" cy="415" r="14" class="start"/>
+            <text x="200" y="420" class="start-t">1</text>
+          </svg>
+
+          <div class="float f1">
+            <span class="fi" style="background: var(--primary-soft);">📚</span>
+            <span><b>Bilim</b><small>eng barqaror yo'l</small></span>
+          </div>
+          <div class="float f2">
+            <span class="fi" style="background: var(--accent-soft);">🏅</span>
+            <span><b>Stipendiya</b><small>intizom + motivatsiya</small></span>
+          </div>
+          <div class="float f3">
+            <span class="fi" style="background: var(--red-soft);">🤝</span>
+            <span><b>Tanish-bilish</b><small>tez, lekin mo'rt</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guruhlar lentasi -->
+    <div class="groups" aria-label="Guruhlar">
+      <div class="groups-track" id="groupsTrack">
+        <span>58-guruh</span><span>59-guruh</span><span>54-guruh</span><span>61-guruh</span><span>77-guruh</span><span>55-guruh</span><span>74-guruh</span>
+      </div>
+    </div>
+
+    <!-- 3 yo'l -->
+    <section id="yollar">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Karyera qilishning 3 uslubi</div>
+          <h2>Uch yo'l — uch xil natija</h2>
+          <p>Kartani bosing: har bir yo'lning kuchli va zaif tomonlari ochiladi.</p>
+        </div>
+        <div class="paths-grid">
+          <article class="path-card" data-path="k" tabindex="0">
+            <div class="pc-inner">
+              <div class="pc-front">
+                <div class="pc-num">01</div>
+                <div class="icon" style="background: var(--primary-soft);">📚</div>
+                <h3>Bilim orqali</h3>
+                <p>Kasbingizni chuqur o'rganasiz, amaliy loyihalar qilasiz va o'z qiymatingizni ko'rsatib ish topasiz.</p>
+                <div class="meter"><span style="--v: 95%; --c: var(--primary);"></span></div>
+                <div class="meter-l"><small>Ishonchlilik</small><b>95%</b></div>
+                <span class="pc-hint">Bosing ↻</span>
+              </div>
+              <div class="pc-back">
+                <h4>✅ Kuchli tomonlari</h4>
+                <ul class="plus">
+                  <li>Hech kim tortib ololmaydigan kapital</li>
+                  <li>Istalgan shahar va davlatda ishlaydi</li>
+                  <li>Daromad tajriba bilan birga o'sadi</li>
+                </ul>
+                <h4>⚠️ Qiyin tomoni</h4>
+                <ul class="minus">
+                  <li>Natija sekin keladi — sabr kerak</li>
+                  <li>Har kuni mustaqil mehnat talab qiladi</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="path-card" data-path="s" tabindex="0">
+            <div class="pc-inner">
+              <div class="pc-front">
+                <div class="pc-num">02</div>
+                <div class="icon" style="background: var(--accent-soft);">🏅</div>
+                <h3>Stipendiyant bo'lish orqali</h3>
+                <p>Yuqori baholar bilan o'qiysiz, stipendiya olasiz, ustozlar e'tiboriga tushasiz va imkoniyatlar eshigi ochiladi.</p>
+                <div class="meter"><span style="--v: 75%; --c: var(--accent);"></span></div>
+                <div class="meter-l"><small>Ishonchlilik</small><b>75%</b></div>
+                <span class="pc-hint">Bosing ↻</span>
+              </div>
+              <div class="pc-back">
+                <h4>✅ Kuchli tomonlari</h4>
+                <ul class="plus">
+                  <li>Talabalikdanoq o'z daromadingiz</li>
+                  <li>Intizom va vaqtni boshqarish odati</li>
+                  <li>Grant, almashinuv dasturlari, tavsiyanomalar</li>
+                </ul>
+                <h4>⚠️ Qiyin tomoni</h4>
+                <ul class="minus">
+                  <li>Faqat baho uchun o'qisa — amaliyot kam qoladi</li>
+                  <li>Har semestr natijani ushlab turish kerak</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="path-card" data-path="t" tabindex="0">
+            <div class="pc-inner">
+              <div class="pc-front">
+                <div class="pc-num">03</div>
+                <div class="icon" style="background: var(--red-soft);">🤝</div>
+                <h3>Diplom + tanish-bilish orqali</h3>
+                <p>Diplomni olasiz va tanishlar yordamida ishga joylashasiz. Tez ko'rinadi — lekin poydevor bo'lmasa, uy tez qulaydi.</p>
+                <div class="meter"><span style="--v: 20%; --c: var(--red);"></span></div>
+                <div class="meter-l"><small>Ishonchlilik</small><b>20%</b></div>
+                <span class="pc-hint">Bosing ↻</span>
+              </div>
+              <div class="pc-back">
+                <h4>✅ Bir qarashda</h4>
+                <ul class="plus">
+                  <li>Ishga tez kirish mumkindek tuyuladi</li>
+                </ul>
+                <h4>⚠️ Haqiqatda</h4>
+                <ul class="minus">
+                  <li>Tanish ketsa — o'rningiz ham ketadi</li>
+                  <li>Bilimsiz ishda o'sish to'xtaydi</li>
+                  <li>Raqobatli, xalqaro bozorda ishlamaydi</li>
+                </ul>
+                <p class="note">💡 To'g'ri shakli — <b>networking</b>: bilimingizni ko'rsatib, soha odamlari bilan tanishing.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taqqoslash -->
+    <section class="band" id="taqqoslash">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">10 yillik ko'rinish</div>
+          <h2>Yillar o'tib qaysi yo'l yuqorida?</h2>
+          <p>Slayderni suring — har bir yo'lda karyera darajasi qanday o'zgarishini ko'ring.</p>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-legend">
+            <span class="lg k">📚 Bilim</span>
+            <span class="lg s">🏅 Stipendiya</span>
+            <span class="lg t">🤝 Tanish-bilish</span>
+          </div>
+          <svg class="chart" id="chart" viewBox="0 0 640 300" role="img" aria-label="Uch yo'l bo'yicha 10 yillik karyera o'sishi grafigi">
+            <g class="grid" id="chartGrid"></g>
+            <path class="line line-k" id="lineK"/>
+            <path class="line line-s" id="lineS"/>
+            <path class="line line-t" id="lineT"/>
+            <line class="cursor" id="cursorLine" y1="20" y2="260"/>
+            <circle class="pt pt-k" id="ptK" r="6"/>
+            <circle class="pt pt-s" id="ptS" r="6"/>
+            <circle class="pt pt-t" id="ptT" r="6"/>
+          </svg>
+          <div class="chart-controls">
+            <label for="year">Yil: <b id="yearLabel">4</b> <small id="yearHint">— universitetni bitirgan payt</small></label>
+            <input type="range" id="year" min="0" max="10" step="0.1" value="4">
+          </div>
+          <div class="chart-values">
+            <div class="cv k"><small>Bilim</small><b id="vK">0</b></div>
+            <div class="cv s"><small>Stipendiya</small><b id="vS">0</b></div>
+            <div class="cv t"><small>Tanish-bilish</small><b id="vT">0</b></div>
+          </div>
+          <p class="chart-note">* Grafik — suhbat g'oyasini ko'rsatuvchi taxminiy model, aniq statistika emas.</p>
+        </div>
+
+        <div class="compare">
+          <table>
+            <thead>
+              <tr><th>Mezon</th><th>📚 Bilim</th><th>🏅 Stipendiya</th><th>🤝 Tanish-bilish</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Natija tezligi</td><td><i class="r2"></i></td><td><i class="r3"></i></td><td><i class="r4"></i></td></tr>
+              <tr><td>Barqarorlik</td><td><i class="r5"></i></td><td><i class="r4"></i></td><td><i class="r1"></i></td></tr>
+              <tr><td>Mustaqillik</td><td><i class="r5"></i></td><td><i class="r4"></i></td><td><i class="r1"></i></td></tr>
+              <tr><td>Uzoq muddatli o'sish</td><td><i class="r5"></i></td><td><i class="r4"></i></td><td><i class="r1"></i></td></tr>
+              <tr><td>Hozir boshlash mumkinmi?</td><td>✅ Bugundan</td><td>✅ 1-semestrdan</td><td>❌ Sizga bog'liq emas</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Soat kalkulyatori -->
+    <section id="soat">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Bilim kalkulyatori</div>
+          <h2>4 yilda qancha soat yig'asiz?</h2>
+          <p>Kuniga darsdan tashqari qancha vaqt o'z ustingizda ishlaysiz?</p>
+        </div>
+        <div class="calc">
+          <div class="calc-input">
+            <label for="hours">Kuniga: <b id="hoursLabel">2</b> soat</label>
+            <input type="range" id="hours" min="0" max="8" step="0.5" value="2">
+            <div class="calc-scale"><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span></div>
+          </div>
+          <div class="calc-out">
+            <div class="big"><b id="totalHours">2 920</b><small>soat 4 yilda</small></div>
+            <div class="level">
+              <div class="level-bar"><span id="levelBar"></span></div>
+              <p id="levelText">Junior mutaxassis darajasi — birinchi ishga tayyor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test -->
+    <section class="band" id="test">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Mini test</div>
+          <h2>Hozir qaysi yo'ldasiz?</h2>
+          <p>6 ta savol — rostini belgilang, natija faqat sizga ko'rinadi.</p>
+        </div>
+        <div class="quiz" id="quiz">
+          <div class="quiz-top">
+            <span id="qCount">1 / 6</span>
+            <div class="quiz-bar"><span id="qBar"></span></div>
+          </div>
+          <div class="quiz-body" id="qBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reja -->
+    <section id="reja">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">4 yillik yo'l xaritasi</div>
+          <h2>1-kursdan boshlab nima qilish kerak?</h2>
+          <p>Bilim va stipendiya yo'lini birlashtiring — eng kuchli natija shu.</p>
+        </div>
+        <ol class="timeline">
+          <li>
+            <div class="tl-dot">1</div>
+            <div class="tl-card">
+              <h3>1-kurs · Poydevor</h3>
+              <ul>
+                <li>Birinchi semestrdanoq yuqori GPA — stipendiyaga yo'l</li>
+                <li>Ingliz tili: har kuni 30 daqiqa</li>
+                <li>Mutaxassislik bo'yicha bitta yo'nalish tanlash</li>
+                <li>Kuniga kamida 1–2 soat mustaqil o'qish</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-dot">2</div>
+            <div class="tl-card">
+              <h3>2-kurs · Amaliyot</h3>
+              <ul>
+                <li>Birinchi kichik loyihalar va portfolio</li>
+                <li>Olimpiada, tanlov va hakatonlarda qatnashish</li>
+                <li>Nomdor stipendiyalar va grantlarga tayyorgarlik</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-dot">3</div>
+            <div class="tl-card">
+              <h3>3-kurs · Tajriba</h3>
+              <ul>
+                <li>Amaliyot (stajirovka) yoki yarim kunlik ish</li>
+                <li>Soha mutaxassislari bilan networking</li>
+                <li>Xalqaro sertifikat (IELTS, kasbiy sertifikatlar)</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="tl-dot">4</div>
+            <div class="tl-card">
+              <h3>4-kurs · Start</h3>
+              <ul>
+                <li>Kuchli diplom ishi — real muammoga yechim</li>
+                <li>Rezyume + portfolio + tavsiyanomalar</li>
+                <li>Diplom qo'lga tegguncha ish taklifi tayyor</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Lavhalar -->
+    <section class="band" id="lavhalar">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Auditoriyadan lavhalar</div>
+          <h2>Suhbat qanday o'tdi</h2>
+          <p>58, 59, 54, 61, 77, 55 va 74-guruh talabalari bilan uchrashuv.</p>
+        </div>
+        <div class="gallery">
+          <button class="g-item g-tall" data-src="img/1.webp" type="button"><img src="img/1.webp" alt="Auditoriyadagi suhbat — umumiy ko'rinish" loading="lazy"></button>
+          <button class="g-item" data-src="img/2.webp" type="button"><img src="img/2.webp" alt="Ekranda amaliy namoyish" loading="lazy"></button>
+          <button class="g-item" data-src="img/4.webp" type="button"><img src="img/4.webp" alt="Talabalar tinglamoqda" loading="lazy"></button>
+          <button class="g-item g-wide" data-src="img/3.webp" type="button"><img src="img/3.webp" alt="Ma'ruzachi va talabalar" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Yakun -->
+    <section>
+      <div class="container">
+        <div class="contact-box">
+          <h2>Diplom — eshik. Bilim — kalit.</h2>
+          <p>Tanish eshikni ochib berishi mumkin, lekin ichkarida sizni faqat bilimingiz ushlab turadi. Bugundan boshlang.</p>
+          <div class="contact-links">
+            <a href="https://t.me/IlhomjonDeveloper" target="_blank" rel="noopener" class="contact-link">
+              <span class="ci tg"><svg><use href="#i-telegram"/></svg></span>
+              <span><small>Savol bo'lsa — Telegram</small>@IlhomjonDeveloper</span>
+            </a>
+            <a href="https://t.me/Ilhomjon_Ibragimov" target="_blank" rel="noopener" class="contact-link">
+              <span class="ci tg"><svg><use href="#i-telegram"/></svg></span>
+              <span><small>Telegram kanal</small>@Ilhomjon_Ibragimov</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rasmni kattalashtirib ko'rish -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" type="button" aria-label="Yopish">✕</button>
+    <img id="lbImg" alt="">
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://t.me/IlhomjonDeveloper" target="_blank" rel="noopener" class="fs tg" aria-label="Telegram" title="Telegram"><svg><use href="#i-telegram"/></svg></a>
+        <a href="https://github.com/Ilhomjon1502" target="_blank" rel="noopener" class="fs gh" aria-label="GitHub" title="GitHub"><svg><use href="#i-github"/></svg></a>
+        <a href="tel:+998996021502" class="fs phone" aria-label="Telefon" title="Telefon"><svg><use href="#i-phone"/></svg></a>
+      </div>
+      © <span id="yearNow">2026</span> FDTU · 1-kurs talabalari uchun · <a href="https://ilhomjonibragimov.uz" target="_blank" rel="noopener">Ilhomjon Ibragimov</a>
+    </div>
+  </footer>
+
+</body>
+</html>
